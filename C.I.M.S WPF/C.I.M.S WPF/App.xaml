@@ -1,0 +1,40 @@
+﻿<Application x:Class="C.I.M.S_WPF.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:C.I.M.S_WPF"
+             xmlns:viewmodel="clr-namespace:C.I.M.S_WPF.ViewModel"
+             xmlns:view="clr-namespace:C.I.M.S_WPF.Views"
+             StartupUri="Views/MainWindowView.xaml">
+    <Application.Resources>
+        <DataTemplate DataType="{x:Type viewmodel:MenuPanelViewModel}">
+            <view:MenuPanelView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:StatusbarViewModel}">
+            <view:StatusbarView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:OutputDetailViewModel}">
+            <view:OutputDetailView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:DataInputButtonsViewModel}">
+            <view:DataInputButtonsView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:DataInputViewModel}">
+            <view:DataInputView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:OutputSummaryViewModel}">
+            <view:OutputSummaryView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:NewInvestWindowViewModel}">
+            <view:NewInvestWindowView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:AskSaveWindowViewModel}">
+            <view:AskSaveWindowView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:ReviseInvestInfoViewModel}">
+            <view:ReviseInvestInfoView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:CreditsWindowViewModel}">
+            <view:CreditsWindowView/>
+        </DataTemplate>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="C.I.M.S_WPF.Views.DataInputView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:C.I.M.S_WPF.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid Name="DataInputGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <WrapPanel Grid.Row="0"
+                       VerticalAlignment="Center"
+                       Margin="5, 0, 5, 0" IsEnabled="{Binding IsCointypeEnabled}">
+                <Label Width="100" Content="코인 종류  " FontWeight="Bold" />
+                <ComboBox Width="100" SelectedIndex="0"
+                          ItemsSource="{Binding CoinTypes, Mode=OneWay}" 
+                          SelectedItem="{Binding SelectedCoin, Mode=TwoWay}">
+                </ComboBox>
+            </WrapPanel>
+            <WrapPanel Grid.Row="1" Name="amountWP"
+                       VerticalAlignment="Center"
+                       Margin="5, 0, 5, 0">
+                <Label Width="100" Content="수량 " FontWeight="Bold"/>
+                <TextBox Name="amountTB" Width="100" TextAlignment="Right"
+                         Text="{Binding AmountText, StringFormat='{}{0:0,0}', Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            </WrapPanel>
+            <WrapPanel Grid.Row="2" Name="unitPriceWP"
+                       VerticalAlignment="Center"
+                       Margin="5, 0, 5, 0" IsEnabled="{Binding IsUnitPriceEnabled}">
+                <Label Width="100" Content="단가 " FontWeight="Bold"/>
+                <TextBox Name="unitPriceTB" Width="100" TextAlignment="Right"
+                         Text="{Binding UnitPriceText, StringFormat=G, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            </WrapPanel>
+            <WrapPanel Grid.Row="3" Name="relativeFeeWP"
+                       VerticalAlignment="Center"
+                       Margin="5, 0, 5, 0" IsEnabled="{Binding IsRelativeFeeEnabled}">
+                <Label Width="100" Content="수수료(상대값)" FontWeight="Bold"/>
+                <TextBox Name="relativeFeeTB" Width="100" TextAlignment="Right"
+                         Text="{Binding RFeeText, StringFormat=G, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <Label Width="50" Content="%"/>
+            </WrapPanel>
+            <WrapPanel Grid.Row="4" Name="absoluteFeeWP"
+                       VerticalAlignment="Center"
+                       Margin="5, 0, 5, 0" IsEnabled="{Binding IsAbsoluteFeeEnabled}">
+                <Label Width="100" Content="수수료(절대값)" FontWeight="Bold"/>
+                <TextBox Name="absoluteFeeTB" Width="100" TextAlignment="Right"
+                         Text="{Binding AFeeText, StringFormat=G, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            </WrapPanel>
+            <WrapPanel Grid.Row="5" Name="descrWP"
+                       VerticalAlignment="Center"
+                       Margin="5, 0, 5, 0">
+                <Label Width="100" Content="비고" FontWeight="Bold"/>
+                <TextBox Name="descrTB" Width="100" TextAlignment="Right"
+                         Text="{Binding DescText, Mode=TwoWay}"/>
+            </WrapPanel>
+            <WrapPanel Grid.Row="6" Name="totalCostWP"
+                       VerticalAlignment="Center"
+                       Margin="5, 0, 5, 0">
+                <Label Width="100" Content="합계" FontWeight="Bold"/>
+                <Label Name="totalCostLBL" Width="100" HorizontalContentAlignment="Right" FontWeight="Bold">
+                    <TextBlock Text="{Binding TotalCostText, Mode=OneWay, StringFormat='{}{0:#,0.##}'}"/>
+                </Label>
+            </WrapPanel>
+            <Button Grid.Row="7" Width="100" Margin="0, 8, 0, 8"
+                    VerticalAlignment="Stretch" HorizontalAlignment="Center"
+                    FontWeight="Bold"
+                    Command="{Binding EnterCommand}">
+                <local:GridWithViewboxText RowNumValue="7" RowValue="1" RowSpanValue="5" TextValue="입력"/>
+            </Button>
+        </Grid>
+    </Grid>
+</UserControl>

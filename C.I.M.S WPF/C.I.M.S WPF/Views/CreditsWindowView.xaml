@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="C.I.M.S_WPF.Views.CreditsWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:C.I.M.S_WPF.Views"
+        mc:Ignorable="d"
+        Height="120" Width="300" FontFamily="Segoe UI">
+    <Grid>
+        <TextBlock x:Name="Program_Title" HorizontalAlignment="Center"  VerticalAlignment="Top"
+                   Height="50" Width="240" Margin="26,19,26,0" 
+                   TextWrapping="Wrap" 
+                   Text="{Binding ProgramTitle}" TextAlignment="Center" FontSize="16" FontWeight="Bold" />
+        <TextBlock HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                   Height="22" Width="162" Margin="0,0,26,10" 
+                   TextWrapping="Wrap" Text="{Binding MadeBy}" FontStyle="Italic" TextAlignment="Right"  />
+
+    </Grid>
+</UserControl>

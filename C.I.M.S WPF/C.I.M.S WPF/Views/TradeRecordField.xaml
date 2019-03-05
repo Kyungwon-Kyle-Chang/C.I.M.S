@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="C.I.M.S_WPF.Views.TradeRecordField"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:C.I.M.S_WPF.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <DataGrid ItemsSource="{Binding InvestInfo.TradeRecords}" 
+              ScrollViewer.CanContentScroll="True"
+                AutoGenerateColumns="False"
+                SelectionMode="Single" SelectionUnit="FullRow"
+                CanUserResizeRows="False" CanUserResizeColumns="True" 
+                CanUserReorderColumns="True">
+        <DataGrid.ColumnHeaderStyle>
+            <Style TargetType="Control">
+                <Setter Property="FontWeight" Value="Bold"/>
+            </Style>
+        </DataGrid.ColumnHeaderStyle>
+        <DataGrid.Columns>
+            <DataGridTextColumn Header="Trade Type" Binding="{Binding TradeType}" IsReadOnly="True" FontWeight="Bold">
+                <DataGridTextColumn.ElementStyle>
+                    <Style TargetType="TextBlock">
+                        <Style.Triggers>
+                            <Trigger Property="Text" Value="DEPOSIT">
+                                <Setter Property="Background" Value="#D8E9D3"/>
+                            </Trigger>
+                            <Trigger Property="Text" Value="WITHDRAWAL">
+                                <Setter Property="Background" Value="#D8D1E8"/>
+                            </Trigger>
+                            <Trigger Property="Text" Value="TRANSFER">
+                                <Setter Property="Background" Value="LightGray"/>
+                            </Trigger>
+                            <Trigger Property="Text" Value="BUY">
+                                <Setter Property="Background" Value="#F3CBCB"/>
+                            </Trigger>
+                            <Trigger Property="Text" Value="SELL">
+                                <Setter Property="Background" Value="#C8D9F7"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGridTextColumn.ElementStyle>
+            </DataGridTextColumn>
+            <DataGridTextColumn Header="Coin Name" Binding="{Binding ItemName}" IsReadOnly="True" FontWeight="Bold"/>
+            <DataGridTextColumn Header="Amount" Binding="{Binding Amount}" IsReadOnly="True"/>
+            <DataGridTextColumn Header="Unit Cost" Binding="{Binding UnitPrice}" IsReadOnly="True"/>
+            <DataGridTextColumn Header="Total Cost" Binding="{Binding TotalCost}" IsReadOnly="True"/>
+            <DataGridTextColumn Header="Relative Fee" Binding="{Binding RelativeFee}" IsReadOnly="True"/>
+            <DataGridTextColumn Header="Absolute Fee" Binding="{Binding AbsoluteFee}" IsReadOnly="True"/>
+            <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
+            <DataGridTextColumn Header="Register Time" Binding="{Binding RegisterTime}" IsReadOnly="True"/>
+        </DataGrid.Columns>
+    </DataGrid>
+
+</UserControl>

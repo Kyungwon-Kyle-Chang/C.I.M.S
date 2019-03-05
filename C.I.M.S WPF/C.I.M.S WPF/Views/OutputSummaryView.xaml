@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="C.I.M.S_WPF.Views.OutputSummaryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:C.I.M.S_WPF.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <local:GridWithViewboxText Grid.Row="0" RowNumValue="3" RowValue="2" TextValue="원금" FontWeight="Bold"/>
+            <local:GridWithViewboxText Grid.Row="1" RowNumValue="8" RowValue="1" RowSpanValue="3" TextValue="{Binding InvestInfo.Principal, StringFormat=C, ConverterCulture=ko-KR}"/>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <local:GridWithViewboxText Grid.Row="0" RowNumValue="3" RowValue="2" TextValue="평가 금액" FontWeight="Bold"/>
+            <local:GridWithViewboxText Grid.Row="1" RowNumValue="8" RowValue="1" RowSpanValue="3" 
+                                       TextValue="{Binding CurrentCapital, StringFormat=C, ConverterCulture='ko-KR'}"
+                                       ColorValue="{Binding ProfitColor}"/>
+        </Grid>
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <local:GridWithViewboxText Grid.Row="0" RowNumValue="3" RowValue="2" TextValue="평가 손익" FontWeight="Bold"/>
+            <local:GridWithViewboxText Grid.Row="1" RowNumValue="8" RowValue="1" RowSpanValue="3" 
+                                       TextValue="{Binding Profit, StringFormat='{}{0:0.00%}'}"
+                                       ColorValue="{Binding ProfitColor}" FontWeight="Bold"/>
+        </Grid>
+    </Grid>
+</UserControl>

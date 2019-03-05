@@ -1,0 +1,59 @@
+﻿<Window x:Class="C.I.M.S_WPF.Views.MainWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:C.I.M.S_WPF.Views"
+        xmlns:viewmodel="clr-namespace:C.I.M.S_WPF.ViewModel"
+        mc:Ignorable="d"
+        Title="{Binding Path=Title}" Height="800" Width="1200" FontFamily="Segoe UI" 
+        WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <viewmodel:MainWindowViewModel/>
+    </Window.DataContext>
+    
+    <DockPanel LastChildFill="True">
+        <ContentControl DockPanel.Dock="Top" Content="{Binding DockPanelTop}"/>
+        <ContentControl DockPanel.Dock="Bottom" Content="{Binding DockPanelBottom}"/>
+        <Grid ShowGridLines="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" MinWidth="250" MaxWidth="500"/>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+            <Grid Name="InputPanelGrid" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+                <ContentControl Content="{Binding Grid00}"/>
+                <GridSplitter Grid.Row="1"
+                              HorizontalAlignment="Stretch"
+                              VerticalAlignment="Center"
+                              Height="2"
+                              Background="LightGray"
+                              ShowsPreview="True"
+                              Margin="1, 0, 1, 0"/>
+                <ContentControl Content="{Binding Grid10}" Grid.Row="2"/>
+            </Grid>
+            <GridSplitter Grid.Column="1" 
+                              HorizontalAlignment="Center" 
+                              VerticalAlignment="Stretch"
+                              Background="LightGray"
+                              Width="3"                          
+                              ShowsPreview="True"
+                              Margin="0, 0, 0, 0"/>
+            <Grid Name="OutputPanelGrid" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+                <ContentControl Content="{Binding Grid01}"/>
+                <ContentControl Content="{Binding Grid11}" Grid.Row="1"/>
+            </Grid>
+        </Grid>
+    </DockPanel>
+</Window>
+

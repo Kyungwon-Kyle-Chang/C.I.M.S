@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="C.I.M.S_WPF.Views.AskSaveWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:C.I.M.S_WPF.Views"
+        mc:Ignorable="d"
+        Height="120" Width="351.529" FontFamily="Segoe UI Semibold">
+    <Grid>
+        <TextBlock Margin="47,27,47,0" TextWrapping="Wrap" 
+                   Text="저장하시겠습니까?" Width="198" 
+                   FontSize="15" VerticalAlignment="Top" TextAlignment="Center"/>
+        <Button Content="예" HorizontalAlignment="Left" Margin="16,0,0,21" VerticalAlignment="Bottom" Width="75"
+                Command="{Binding YesCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+        <Button Content="아니오" HorizontalAlignment="Center" Margin="108,0,109,21" VerticalAlignment="Bottom" Width="75"
+                Command="{Binding NoCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+        <Button Content="취소" HorizontalAlignment="Right" Margin="0,0,16,21" VerticalAlignment="Bottom" Width="75"
+                Command="{Binding CancelCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+    </Grid>
+</UserControl>
